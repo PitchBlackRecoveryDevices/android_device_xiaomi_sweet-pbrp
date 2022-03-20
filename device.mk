@@ -14,12 +14,16 @@
 # limitations under the License.
 #
 
+LOCAL_PATH := device/xiaomi/sweet
+
 # Display
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
 
+# Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(DEVICE_PATH)
+    $(LOCAL_PATH) \
+    vendor/qcom/opensource/commonsys-intf/display
 
 PRODUCT_PACKAGES += \
     qcom_decrypt \
