@@ -14,8 +14,11 @@
 # limitations under the License.
 #
 
-# Extra stuff
+DEVICE_PATH := device/xiaomi/sweet
+
+# For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
+BUILD_BROKEN_DUP_RULES := true
 
 # Architecture
 TARGET_ARCH := arm64
@@ -30,9 +33,10 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a73
 
-TARGET_SUPPORTS_64_BIT_APPS := false
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
+TARGET_USES_64_BIT_BINDER := true
+TARGET_SUPPORTS_64_BIT_APPS := true
 
 # Bootloader
 PRODUCT_PLATFORM := sm6150

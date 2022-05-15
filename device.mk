@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
+
 LOCAL_PATH := device/xiaomi/sweet
 
 # Display
@@ -22,8 +25,7 @@ TARGET_SCREEN_WIDTH := 1080
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    vendor/qcom/opensource/commonsys-intf/display
+    $(LOCAL_PATH)
 
 PRODUCT_PACKAGES += \
     qcom_decrypt \
@@ -35,13 +37,13 @@ PRODUCT_SHIPPING_API_LEVEL := 30
 
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# Recovery
+# Recovery Modules
+PRODUCT_HOST_PACKAGES += \
+    libandroidicu
+
+# Additional binaries & libraries needed for recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
-    libandroidicu \
     libion
 
-RECOVERY_LIBRARY_SOURCE_FILES += \
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so
-
-PRODUCT_COPY_FILES += \
-    $(OUT_DIR)/target/product/$(PRODUCT_RELEASE_NAME)/obj/SHARED_LIBRARIES/libandroidicu_intermediates/libandroidicu.so:$(TARGET_COPY_OUT_RECOVERY)/root/system/lib64/libandroidicu.so
