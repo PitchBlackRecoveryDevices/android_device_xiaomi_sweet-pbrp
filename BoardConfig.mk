@@ -14,12 +14,15 @@
 # limitations under the License.
 #
 
+# Extra stuff
+ALLOW_MISSING_DEPENDENCIES := true
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := cortex-a73
+TARGET_CPU_VARIANT := kryo
 
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-a
@@ -124,8 +127,6 @@ PB_DISABLE_DEFAULT_DM_VERITY := true
 PB_DISABLE_DEFAULT_TREBLE_COMP := true
 PB_DEVICE_RATIO := "20:9"
 
-# Extra stuff
-ALLOW_MISSING_DEPENDENCIES := true
 
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
